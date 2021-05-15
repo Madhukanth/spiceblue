@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useForm, Controller } from "react-hook-form";
 
+import DeleteIcon from "../../assets/delete.svg";
 import { getUser } from "./tasksAPI";
 
 const MainContainer = styled.div`
@@ -38,6 +39,25 @@ const MainContainer = styled.div`
       :focus {
         outline: none;
       }
+    }
+  }
+
+  .action-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .delete-icon {
+      background-image: url(${DeleteIcon});
+      background-position: center;
+      background-size: 13px 13px;
+      border: none;
+      background-repeat: no-repeat;
+      border-radius: 4px;
+      background-color: transparent;
+      cursor: pointer;
+      height: 25px;
+      width: 25px;
     }
   }
 
@@ -80,6 +100,7 @@ const MainContainer = styled.div`
 
 function TaskForm({
   defaultValues = {
+    id: "jnnsdfj989",
     description: "",
     date: "2021-05-04",
     time: "12.00",
@@ -87,6 +108,7 @@ function TaskForm({
   },
   handleCancel,
   handleSave,
+  handleDelete,
 }) {
   const [users, setUsers] = useState([]);
   const { handleSubmit, control } = useForm({ defaultValues });
@@ -165,14 +187,33 @@ function TaskForm({
           />
         </div>
 
-        <div className="buttons-container">
-          <button className="cancel" onClick={handleCancel}>
-            Cancel
-          </button>
-          <button type="submit" className="save">
-            Save
-          </button>
-        </div>
+        {handleDelete && (
+          <div className="action-buttons-container">
+            <button
+              className="delete-icon"
+              onClick={() => handleDelete(defaultValues.id)}
+            ></button>
+            <div className="buttons-container">
+              <button className="cancel" onClick={handleCancel}>
+                Cancel
+              </button>
+              <button type="submit" className="save">
+                Save
+              </button>
+            </div>
+          </div>
+        )}
+
+        {!handleDelete && (
+          <div className="buttons-container">
+            <button className="cancel" onClick={handleCancel}>
+              Cancel
+            </button>
+            <button type="submit" className="save">
+              Save
+            </button>
+          </div>
+        )}
       </form>
     </MainContainer>
   );

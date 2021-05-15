@@ -13,7 +13,7 @@ export const getUser = async () => {
       url: "/user",
     });
 
-    return { error: null, ...res.data };
+    return { error: null, ...res.data.results };
   } catch (err) {
     console.log(err);
     return { error: err };

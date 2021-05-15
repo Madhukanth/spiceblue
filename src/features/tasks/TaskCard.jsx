@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
-import Pencil from "../../assets/pencil.svg";
+import PencilIcon from "../../assets/pencil.svg";
 import TaskForm from "./TaskForm";
 import { updateTask, removeTask } from "./taskSlice";
 import { putTask, deleteTask } from "./tasksAPI";
@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   }
 
   .edit-icon {
-    background-image: url(${Pencil});
+    background-image: url(${PencilIcon});
     background-position: center;
     background-size: 12px 12px;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -57,7 +57,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function TaskCard({ user, task }) {
+function TaskCard({ task }) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
