@@ -98,7 +98,7 @@ function TaskForm({
   const initialFetch = async () => {
     const res = await getUser();
     if (res.error) {
-      // alert("Failed to fetch the user details");
+      alert("Failed to fetch the user details");
       return;
     }
 

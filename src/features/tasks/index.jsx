@@ -9,7 +9,6 @@ import { postTask } from "./tasksAPI";
 
 const MainContainer = styled.div`
   width: 350px;
-  margin: 100px;
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
