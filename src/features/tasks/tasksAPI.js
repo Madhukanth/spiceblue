@@ -3,7 +3,7 @@ import axios from "axios";
 // Setting default baseURL and header
 axios.defaults.baseURL = "https://stage.api.sloovi.com";
 axios.defaults.headers.common[
-  "Authoriztion"
+  "Authorization"
 ] = `Bearer ${process.env.REACT_APP_TOKEN}`;
 
 export const getUser = async () => {
