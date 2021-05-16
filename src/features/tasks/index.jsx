@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 import TaskForm from "./TaskForm";
-import { addTask, selectTasks, setTasks } from "./taskSlice";
+import { selectTasks, setTasks } from "./taskSlice";
 import TaskCard from "./TaskCard";
 import { postTask, getTasks } from "./tasksAPI";
 import { toSeconds, toHHmm } from "./utils";
