@@ -109,7 +109,6 @@ function TaskForm({
   handleDelete,
 }) {
   const [usr, setUsr] = useState({});
-  const [selectedUser, setSelectedUser] = useState({});
   const { handleSubmit, control } = useForm({ defaultValues });
 
   useEffect(() => {
@@ -126,13 +125,9 @@ function TaskForm({
     setUsr(res);
   };
 
-  const onSubmit = (data) => {
-    handleSave({ ...data, selectedUser });
-  };
-
   return (
     <MainContainer>
-      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+      <form autoComplete="off" onSubmit={handleSubmit(handleSave)}>
         <div className="property">
           <p className="label">Task Description</p>
 
@@ -175,12 +170,15 @@ function TaskForm({
 
         <div className="property">
           <p className="label">Assign User</p>
-          <select
-            className="user-input"
-            onChange={(e) => setSelectedUser(e.target.value)}
-          >
-            <option value={usr.id}>{usr.first}</option>
-          </select>
+          <Controller
+            name="selectedUser"
+            control={control}
+            render={({ field }) => (
+              <select className="user-input" {...field}>
+                <option value={usr.id}>{usr.first}</option>
+              </select>
+            )}
+          />
         </div>
 
         {handleDelete && (

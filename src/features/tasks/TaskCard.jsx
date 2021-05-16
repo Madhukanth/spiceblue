@@ -64,7 +64,7 @@ function TaskCard({ task }) {
 
   const saveTask = async (data) => {
     const body = {
-      assigned_user: data.selectedUser,
+      assigned_user: "user_979f2358c7554c809d0d688943b8966b",
       task_date: data.date,
       task_time: toSeconds(data.time),
       is_completed: 0,
