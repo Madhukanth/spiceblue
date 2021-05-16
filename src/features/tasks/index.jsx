@@ -49,7 +49,7 @@ function Task() {
       task_date: data.date,
       task_time: data.time,
       is_completed: 0,
-      time_zone: "",
+      time_zone: new Date().getTimezoneOffset() * 60,
       task_msg: data.decsription,
     };
     const res = await postTask(body);

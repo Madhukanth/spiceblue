@@ -67,7 +67,7 @@ function TaskCard({ task }) {
       task_date: task.date,
       task_time: task.time,
       is_completed: 0,
-      time_zone: "",
+      time_zone: new Date().getTimezoneOffset() * 60,
       task_msg: task.decsription,
     };
     const res = await putTask(task.id, body);
