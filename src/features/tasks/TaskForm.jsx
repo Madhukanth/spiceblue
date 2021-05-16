@@ -110,7 +110,7 @@ function TaskForm({
   handleSave,
   handleDelete,
 }) {
-  const [usr, setUsr] = useState();
+  const [usr, setUsr] = useState({});
   const { handleSubmit, control } = useForm({ defaultValues });
 
   useEffect(() => {
