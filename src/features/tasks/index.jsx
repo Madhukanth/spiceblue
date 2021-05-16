@@ -82,7 +82,7 @@ function Task() {
       return;
     }
 
-    dispatch(addTask({ ...data, id: res.id }));
+    fetchTasks();
   };
 
   return (
