@@ -27,7 +27,7 @@ export const getTasks = async () => {
       url: "/task/lead_58be137bfde045e7a0c8d107783c4598",
     });
 
-    return { error: null, ...res.data };
+    return { error: null, ...res.data.results };
   } catch (err) {
     console.log(err);
     return { error: err };

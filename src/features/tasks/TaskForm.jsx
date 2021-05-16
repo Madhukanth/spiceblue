@@ -184,11 +184,12 @@ function TaskForm({
         {handleDelete && (
           <div className="action-buttons-container">
             <button
+              type="button"
               className="delete-icon"
               onClick={() => handleDelete(defaultValues.id)}
             ></button>
             <div className="buttons-container">
-              <button className="cancel" onClick={handleCancel}>
+              <button type="button" className="cancel" onClick={handleCancel}>
                 Cancel
               </button>
               <button type="submit" className="save">

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 import TaskForm from "./TaskForm";
-import { addTask, selectTasks } from "./taskSlice";
+import { addTask, selectTasks, setTasks } from "./taskSlice";
 import TaskCard from "./TaskCard";
-import { postTask } from "./tasksAPI";
+import { postTask, getTasks } from "./tasksAPI";
 import { toSeconds } from "./utils";
 
 const MainContainer = styled.div`
@@ -43,6 +43,21 @@ function Task() {
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    fetchTasks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchTasks = async () => {
+    const res = await getTasks();
+    if (res.error) {
+      alert("Failed to fetch tasks");
+      return;
+    }
+
+    dispatch(setTasks(res));
+  };
 
   const handleAdd = async (data) => {
     const body = {
