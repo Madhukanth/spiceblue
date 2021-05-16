@@ -110,7 +110,7 @@ function TaskForm({
   handleSave,
   handleDelete,
 }) {
-  const [users, setUsers] = useState([]);
+  const [usr, setUsr] = useState();
   const { handleSubmit, control } = useForm({ defaultValues });
 
   useEffect(() => {
@@ -124,7 +124,7 @@ function TaskForm({
       return;
     }
 
-    setUsers([res]);
+    setUsr(res);
   };
 
   return (
@@ -176,12 +176,8 @@ function TaskForm({
             name="user"
             control={control}
             render={({ field }) => (
-              <select className="user-input" {...field}>
-                {users.map((user) => (
-                  <option key={user.id} value={user.id}>
-                    {user.first}
-                  </option>
-                ))}
+              <select name="user" className="user-input" {...field}>
+                <option value={usr.id}>{usr.first}</option>
               </select>
             )}
           />
