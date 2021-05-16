@@ -108,7 +108,9 @@ function TaskCard({ task }) {
         <img className="user-icon" src={task.user_icon} alt="" />
         <div className="text-container">
           <p className="desc">{task.task_msg}</p>
-          <p className="date">{task.task_date.split("-").join("/")}</p>
+          <p className="date">
+            {task.task_date.split("-").reverse().join("/")}
+          </p>
         </div>
       </div>
 
