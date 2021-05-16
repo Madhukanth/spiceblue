@@ -103,6 +103,7 @@ function TaskForm({
     task_msg: "",
     task_date: "2021-05-04",
     task_time: "12:00",
+    selectedUser: "user_979f2358c7554c809d0d688943b8966b",
   },
   handleCancel,
   handleSave,
