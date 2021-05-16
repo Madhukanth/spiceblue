@@ -6,7 +6,7 @@ import TaskForm from "./TaskForm";
 import { addTask, selectTasks, setTasks } from "./taskSlice";
 import TaskCard from "./TaskCard";
 import { postTask, getTasks } from "./tasksAPI";
-import { toSeconds } from "./utils";
+import { toSeconds, toHHmm } from "./utils";
 
 const MainContainer = styled.div`
   width: 350px;
@@ -58,7 +58,10 @@ function Task() {
 
     const result = [];
     for (let key in res.results) {
-      result.push(res.results[key]);
+      result.push({
+        ...res.results[key],
+        task_time: toHHmm(res.results[key].task_time),
+      });
     }
 
     dispatch(setTasks(result));
@@ -67,11 +70,11 @@ function Task() {
   const handleAdd = async (data) => {
     const body = {
       assigned_user: "user_979f2358c7554c809d0d688943b8966b",
-      task_date: data.date,
-      task_time: toSeconds(data.time),
+      task_date: data.task_date,
+      task_time: toSeconds(data.task_time),
       is_completed: 0,
       time_zone: new Date().getTimezoneOffset() * 60,
-      task_msg: data.description,
+      task_msg: data.task_msg,
     };
     const res = await postTask(body);
     if (res.error) {

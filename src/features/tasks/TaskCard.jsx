@@ -65,11 +65,11 @@ function TaskCard({ task }) {
   const saveTask = async (data) => {
     const body = {
       assigned_user: "user_979f2358c7554c809d0d688943b8966b",
-      task_date: data.date,
-      task_time: toSeconds(data.time),
+      task_date: data.task_date,
+      task_time: toSeconds(data.task_time),
       is_completed: 0,
       time_zone: new Date().getTimezoneOffset() * 60,
-      task_msg: data.description,
+      task_msg: data.task_msg,
     };
     const res = await putTask(task.id, body);
     if (res.error) {

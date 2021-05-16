@@ -7,3 +7,10 @@ export const toSeconds = (time) => {
   seconds += min * 60;
   return seconds;
 };
+
+export const toHHmm = (seconds) => {
+  const hour = Math.floor(seconds / 3600);
+  const min = Math.floor(seconds / 60);
+
+  return `${hour}:${min}`;
+};

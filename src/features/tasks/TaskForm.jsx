@@ -100,9 +100,9 @@ const MainContainer = styled.div`
 
 function TaskForm({
   defaultValues = {
-    description: "",
-    date: "2021-05-04",
-    time: "12:00",
+    task_msg: "",
+    task_date: "2021-05-04",
+    task_time: "12:00",
   },
   handleCancel,
   handleSave,
