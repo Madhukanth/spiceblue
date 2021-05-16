@@ -57,7 +57,7 @@ function Task() {
     }
 
     const result = [];
-    for (let key in res) {
+    for (let key in res.results) {
       result.push(res[key]);
     }
     dispatch(setTasks(result));
