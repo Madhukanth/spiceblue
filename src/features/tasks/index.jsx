@@ -47,7 +47,7 @@ function Task() {
   const handleAdd = async (data) => {
     console.log(data);
     const body = {
-      assigned_user: "user_979f2358c7554c809d0d688943b8966b",
+      assigned_user: data.selectedUser,
       task_date: data.date,
       task_time: toSeconds(data.time),
       is_completed: 0,
@@ -59,7 +59,7 @@ function Task() {
       alert("Failed to add the task");
       return;
     }
-    dispatch(addTask(data));
+    dispatch(addTask(res));
   };
 
   return (

@@ -42,7 +42,7 @@ export const postTask = async (body) => {
       data: body,
     });
 
-    return { error: null, ...res.data };
+    return { error: null, ...res.data.results };
   } catch (err) {
     console.log(err);
     return { error: err };

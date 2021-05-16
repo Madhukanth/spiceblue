@@ -100,11 +100,11 @@ const MainContainer = styled.div`
 
 function TaskForm({
   defaultValues = {
-    id: "jnnsdfj989",
+    id: "helk233ml423",
     description: "",
     date: "2021-05-04",
     time: "12:00",
-    user: "",
+    selectedUser: "",
   },
   handleCancel,
   handleSave,
@@ -174,7 +174,7 @@ function TaskForm({
         <div className="property">
           <p className="label">Assign User</p>
           <Controller
-            name="user"
+            name="selectedUser"
             control={control}
             render={({ field }) => (
               <select name="user" className="user-input" {...field}>
