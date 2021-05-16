@@ -77,6 +77,7 @@ function TaskCard({ task }) {
       return;
     }
 
+    setOpen(false);
     dispatch(updateTask({ ...data, id: task.id }));
   };
 

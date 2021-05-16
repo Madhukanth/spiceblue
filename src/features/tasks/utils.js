@@ -12,5 +12,6 @@ export const toHHmm = (seconds) => {
   const hour = Math.floor(seconds / (60 * 60));
   const min = Math.floor(seconds % (60 * 60)) / 60;
 
+  console.log(hour, min);
   return `${hour}:${min}`;
 };
