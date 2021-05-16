@@ -6,6 +6,7 @@ import PencilIcon from "../../assets/pencil.svg";
 import TaskForm from "./TaskForm";
 import { updateTask, removeTask } from "./taskSlice";
 import { putTask, deleteTask } from "./tasksAPI";
+import { toSeconds } from "./utils";
 
 const Wrapper = styled.div`
   display: flex;
@@ -65,10 +66,10 @@ function TaskCard({ task }) {
     const body = {
       assigned_user: task.user,
       task_date: task.date,
-      task_time: task.time,
+      task_time: toSeconds(task.time),
       is_completed: 0,
       time_zone: new Date().getTimezoneOffset() * 60,
-      task_msg: task.decsription,
+      task_msg: task.description,
     };
     const res = await putTask(task.id, body);
     if (res.error) {

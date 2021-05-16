@@ -103,7 +103,7 @@ function TaskForm({
     id: "jnnsdfj989",
     description: "",
     date: "2021-05-04",
-    time: "12.00",
+    time: "12:00",
     user: "",
   },
   handleCancel,

@@ -6,6 +6,7 @@ import TaskForm from "./TaskForm";
 import { addTask, selectTasks } from "./taskSlice";
 import TaskCard from "./TaskCard";
 import { postTask } from "./tasksAPI";
+import { toSeconds } from "./utils";
 
 const MainContainer = styled.div`
   width: 350px;
@@ -44,13 +45,14 @@ function Task() {
   const [open, setOpen] = useState(true);
 
   const handleAdd = async (data) => {
+    console.log(data);
     const body = {
       assigned_user: data.user,
       task_date: data.date,
-      task_time: data.time,
+      task_time: toSeconds(data.time),
       is_completed: 0,
       time_zone: new Date().getTimezoneOffset() * 60,
-      task_msg: data.decsription,
+      task_msg: data.description,
     };
     const res = await postTask(body);
     if (res.error) {
