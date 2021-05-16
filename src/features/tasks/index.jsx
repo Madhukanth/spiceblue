@@ -56,8 +56,11 @@ function Task() {
       return;
     }
 
-    console.log(res);
-    dispatch(setTasks(res));
+    const result = [];
+    for (let key in res) {
+      result.push(res[key]);
+    }
+    dispatch(setTasks(result));
   };
 
   const handleAdd = async (data) => {
