@@ -104,14 +104,10 @@ function TaskCard({ task }) {
   return (
     <Wrapper>
       <div className="details-container">
-        <img
-          className="user-icon"
-          src="https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg"
-          alt=""
-        />
+        <img className="user-icon" src={task.user_icon} alt="" />
         <div className="text-container">
-          <p className="desc">{task.description}</p>
-          <p className="date">{task.date}</p>
+          <p className="desc">{task.task_msg}</p>
+          <p className="date">{task.task_date}</p>
         </div>
       </div>
 

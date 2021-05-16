@@ -132,7 +132,7 @@ function TaskForm({
           <p className="label">Task Description</p>
 
           <Controller
-            name="description"
+            name="task_msg"
             control={control}
             render={({ field }) => (
               <input
@@ -148,7 +148,7 @@ function TaskForm({
           <div className="property flex-half">
             <p className="label">Date</p>
             <Controller
-              name="date"
+              name="task_date"
               control={control}
               render={({ field }) => (
                 <input className="user-input" type="date" {...field} />
@@ -159,7 +159,7 @@ function TaskForm({
           <div className="property flex-half">
             <p className="label">Time</p>
             <Controller
-              name="time"
+              name="task_time"
               control={control}
               render={({ field }) => (
                 <input className="user-input" type="time" {...field} />
