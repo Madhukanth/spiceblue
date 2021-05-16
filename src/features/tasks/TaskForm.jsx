@@ -123,7 +123,6 @@ function TaskForm({
       return;
     }
 
-    console.log(res, res.id);
     setUsr(res);
   };
 
