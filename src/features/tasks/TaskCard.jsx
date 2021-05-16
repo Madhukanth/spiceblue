@@ -62,14 +62,14 @@ function TaskCard({ task }) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
-  const saveTask = async (task) => {
+  const saveTask = async (data) => {
     const body = {
       assigned_user: "user_979f2358c7554c809d0d688943b8966b",
-      task_date: task.date,
-      task_time: toSeconds(task.time),
+      task_date: data.date,
+      task_time: toSeconds(data.time),
       is_completed: 0,
       time_zone: new Date().getTimezoneOffset() * 60,
-      task_msg: task.description,
+      task_msg: data.description,
     };
     const res = await putTask(task.id, body);
     if (res.error) {
@@ -77,7 +77,7 @@ function TaskCard({ task }) {
       return;
     }
 
-    dispatch(updateTask(task));
+    dispatch(updateTask({ ...data, id: task.id }));
   };
 
   const handleDelete = async (taskID) => {

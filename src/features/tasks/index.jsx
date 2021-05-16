@@ -45,7 +45,6 @@ function Task() {
   const [open, setOpen] = useState(true);
 
   const handleAdd = async (data) => {
-    console.log(data);
     const body = {
       assigned_user: "user_979f2358c7554c809d0d688943b8966b",
       task_date: data.date,
@@ -59,7 +58,8 @@ function Task() {
       alert("Failed to add the task");
       return;
     }
-    dispatch(addTask(res));
+
+    dispatch(addTask({ ...data, id: res.id }));
   };
 
   return (
