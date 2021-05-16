@@ -56,6 +56,7 @@ function Task() {
       return;
     }
 
+    console.log(res);
     dispatch(setTasks(res));
   };
 
